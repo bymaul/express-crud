@@ -1,6 +1,7 @@
-import User from '../models/UserModel.js';
+import { Request, Response } from 'express';
+import User from '../models/UserModel';
 
-export const getUsers = async (req, res) => {
+export const getUsers = async (res: Response) => {
     try {
         const response = await User.findAll();
         res.status(200).json(response);
@@ -9,7 +10,7 @@ export const getUsers = async (req, res) => {
     }
 };
 
-export const getUserById = async (req, res) => {
+export const getUserById = async (req: Request, res: Response) => {
     try {
         const response = await User.findOne({
             where: {
@@ -22,7 +23,7 @@ export const getUserById = async (req, res) => {
     }
 };
 
-export const createUser = async (req, res) => {
+export const createUser = async (req: Request, res: Response) => {
     try {
         await User.create(req.body);
         res.status(201).json({
@@ -34,7 +35,7 @@ export const createUser = async (req, res) => {
     }
 };
 
-export const updateUser = async (req, res) => {
+export const updateUser = async (req: Request, res: Response) => {
     try {
         await User.update(req.body, {
             where: {
@@ -50,7 +51,7 @@ export const updateUser = async (req, res) => {
     }
 };
 
-export const deleteUser = async (req, res) => {
+export const deleteUser = async (req: Request, res: Response) => {
     try {
         await User.destroy({
             where: {

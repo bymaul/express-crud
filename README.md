@@ -1,1 +1,1 @@
-Simple CRUD application on Express
+Simple CRUD application on Express + TypeScript
